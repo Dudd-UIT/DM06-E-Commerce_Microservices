@@ -1,0 +1,38 @@
+Detailed Description of Your Business Solution
+As a business owner in the e-commerce sector, you're currently managing operations manually, with no integrated digital tools in place. Your product catalog consists of a wide range of items, each associated with a unique product code and a thorough description, helping customers choose what they wish to purchase.
+
+Your customers place orders directly from this product catalog, specifying the items they wish to purchase. For each transaction, customers are identified using their first and last names, email address, and shipping address. Each order is linked to a specific payment method, which will be used to complete the transaction.
+
+Upon a successful payment transaction, you, as the business owner, are responsible for informing the customer via email. This email serves as an order confirmation, reassuring the customer that their payment has been successfully processed. Conversely, if the payment fails, a notification email is sent to inform the customer about the payment failure.
+
+To streamline your operations and promote scalability for future growth, you are planning to develop a dedicated application. This application will simplify the business processes by automating interactions between customers, payments, product inventory, and communication (via email). It will help scale your business by optimizing backend processes, offering a seamless experience to both customers and employees, and supporting a more efficient order management system.
+
+Proposed Digital Architecture (from the diagram)
+Frontend Interface:
+Your business will have a web interface (represented by the "API GW" node), where customers can view products and place orders. This interface communicates with the backend via API calls.
+
+Microservices Architecture:
+
+Product Service: The Product service manages all product-related data, such as product codes, descriptions, availability, and other product information. It connects to a MongoDB database where product information is stored.
+Order Service: The Order service handles the creation and management of customer orders. When a customer places an order, this service updates the order status and stores relevant details in a PostgreSQL database.
+Customer Service: The Customer service manages customer profiles, storing key customer data such as names, addresses, and emails in MongoDB. This service also handles customer-specific actions, like order history.
+Payment Service: The Payment service processes transactions and verifies payments. It communicates asynchronously with the Payment Gateway and updates the order system once a payment is successful. The status of the transaction is stored in the PostgreSQL database.
+Notification Service: The Notification service is responsible for sending confirmation or failure emails to customers upon payment completion. This is triggered asynchronously once payment confirmation is received.
+Kafka & Message Broker:
+Kafka, as a message broker, is used for asynchronous communication between services. After a payment is processed successfully, the Payment service publishes a message to Kafka to notify other services (like Order and Notification) about the payment status. This system enables decoupling of services, which is crucial for scalability and resilience.
+
+Config Server:
+The Config server centralizes configuration management, ensuring that all microservices are in sync with the latest configuration settings and credentials stored in a Git repository.
+
+Eureka Server (Service Discovery):
+The Eureka server allows services to register and discover each other, enabling dynamic scaling and high availability in your application.
+
+Distributed Tracing with Zipkin:
+Zipkin is used for distributed tracing, helping monitor and track requests as they flow through your microservices architecture. This feature is essential for debugging and optimizing system performance.
+
+Benefits of the Digital Solution:
+Scalability: As your business grows, your application can easily scale to handle increased customer traffic, new products, and more orders.
+Automation: The entire order-to-payment process, including notifications, will be automated, reducing human intervention and the chance of errors.
+Efficiency: The application will automate data synchronization across multiple services, minimizing data redundancy and errors, while ensuring smoother customer interactions.
+Customer Satisfaction: Faster and more reliable order and payment processing, along with timely notifications, will improve the customer experience.
+This architecture represents a modern approach to e-commerce by implementing microservices, asynchronous communication, and robust service discovery. With these digital tools, you will be able to optimize your business processes, reduce manual efforts, and scale efficiently as your business grows.
