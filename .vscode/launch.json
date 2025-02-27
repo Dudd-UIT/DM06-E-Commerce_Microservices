@@ -1,0 +1,93 @@
+{
+  "configurations": [
+    {
+      "type": "jdk",
+      "request": "launch",
+      "name": "Launch Java App"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ConfigServerApplication<config-server>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservices.configserver.ConfigServerApplication",
+      "projectName": "config-server",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=53944 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=config-server"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-DiscoveryApplication<discovery>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservices.discovery.DiscoveryApplication",
+      "projectName": "discovery",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=54054 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=discovery"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-CustomerApplication<customer>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservices.ecommerce.CustomerApplication",
+      "projectName": "customer",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=54072 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=customer"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ProductApplication<product>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservices.ecommerce.ProductApplication",
+      "projectName": "product",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=54079 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=product"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-OrderApplication<order>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservices.ecommerce.OrderApplication",
+      "projectName": "order",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-PaymentApplication<payment>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservices.ecommerce.PaymentApplication",
+      "projectName": "payment",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-NotificationApplication<notification>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservices.ecommerce.NotificationApplication",
+      "projectName": "notification",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-GatewayApplication<gateway>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.microservices.gateway.GatewayApplication",
+      "projectName": "gateway",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
